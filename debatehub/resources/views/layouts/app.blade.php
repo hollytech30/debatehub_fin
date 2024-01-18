@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'DebateHub') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -53,14 +53,10 @@
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
-
-            <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-            </div><!-- End Search Bar -->
-
+            @if(isset($searchBar))
+                {{$searchBar}}
+            @endif
+            
             <nav class="header-nav ms-auto">
                 @include('layouts.navbars.header')
             </nav><!-- End Icons Navigation -->
@@ -85,6 +81,15 @@
             </section>
         
           </main><!-- End #main -->
+
+          <footer id="footer" class="footer">
+            <div class="copyright">
+              © Copyright <strong><span>{{config('app.name', 'debateHub')}}</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://hollytechsolnz.rf.gd/">Holly Tech Solutions</a>
+            </div>
+          </footer>
 
         {{-- <script src="{{asset('js_bt/bootstrap.js')}}"></script>
         <script src="{{asset('js_bt/bootstrap.min.js')}}"></script> --}}

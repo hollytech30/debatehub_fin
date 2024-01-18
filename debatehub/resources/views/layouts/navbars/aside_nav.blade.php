@@ -18,11 +18,12 @@
         ])
     
     @include('layouts/navbars/aside_nav_item', [
-        'nTarget' => 'users', 
-        'nTitle' => 'Users',
+        'nTarget' => 'users', // target submenu
+        'nTitle' => 'User Management', // show on menu
         'nOptions' => [
-            ['route'=>'dashboard','title'=>'New'],
-            ['route' => 'dashboard', 'title' => 'Title 2'],
+            ['route'=>'users','title'=>'Users'],
+            ['route' => 'roles', 'title' => 'Roles'],
+            ['route' => 'permissions', 'title' => 'Permisions'],
         ]
         ])
 

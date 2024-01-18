@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Appfaq;
+use App\Livewire\UsersList;
+use App\Livewire\RolesList;
+use App\Livewire\PermissionsList;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +30,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/faqs', Appfaq::class)->name('appfaq');
-    
+    Route::get('/users', UsersList::class)->name('users');
+    Route::get('/roles', RolesList::class)->name('roles');
+    Route::get('/permissions', PermissionsList::class)->name('permissions');
 });
