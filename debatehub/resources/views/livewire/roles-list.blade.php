@@ -1,4 +1,4 @@
-<div>
+<div wire:poll.visible>
    {{-- Do your work, then step back.  --}}
 
     <x-slot name="breadcrumbs">
@@ -20,7 +20,7 @@
 
         @forelse ($roles as $role)
             <!--begin::Col-->
-            <div class="col-md-4" wire:id={{$role->id}} >
+            <div class="col-md-4" wire:key={{$role->id}} >
                 <!--begin::Card-->
                 <div class="card card-flush h-md-100" style="box-shadow: none; border: 1px dashed grey;">
                     <!--begin::Card header-->
@@ -76,7 +76,7 @@
         @endforelse
 
         {{-- new role card --}}
-        @livewire('NewRoleCard')
+        @livewire('NewRoleCard' )
     </div>
 
 </div>

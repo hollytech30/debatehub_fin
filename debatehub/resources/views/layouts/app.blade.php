@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         {{-- <link rel="stylesheet" href="{{asset('css_bt/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('css_bt/bootstrap.min.css')}}"> --}}
@@ -32,6 +32,7 @@
         <link href="{{asset('dbh_assets/css/style.css')}}" rel="stylesheet">
 
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -44,7 +45,7 @@
     <body class="font-sans antialiased">
         
         <!-- ======= Header ======= -->
-        <header id="header" class="header fixed-top d-flex align-items-center">
+        <header id="header" class="header fixed-top d-flex align-items-center" style="z-index: 40">
 
             <div class="d-flex align-items-center justify-content-between">
             <a href="{{route('home')}}" class="logo d-flex align-items-center">
@@ -64,7 +65,7 @@
         </header><!-- End Header -->
 
           <!-- ======= Sidebar ======= -->
-        <aside id="sidebar" class="sidebar">
+        <aside id="sidebar" class="sidebar" style="z-index: 30">
             @include('layouts.navbars.aside_nav')
         </aside><!-- End Sidebar-->
 

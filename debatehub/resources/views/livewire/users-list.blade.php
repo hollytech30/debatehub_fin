@@ -3,16 +3,7 @@
    <x-slot name="breadcrumbs">
         <li class="breadcrumb-item active">Users</li>
    </x-slot>
-   {{-- <x-slot name="mainTitle">
-        <div class="col">Users</div>
-        <div class="col justify-content-left">
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-danger">Left</button>
-                <button type="button" class="btn btn-warning">Middle</button>
-                <button type="button" class="btn btn-success">Right</button>
-            </div>
-        </div>
-    </x-slot> --}}
+   
     {{-- data table --}}
     <div class="card-header datatable-wrapper datatable-loading sortable searchable fixed-columns">
     <div class="datatable-top">
@@ -24,13 +15,24 @@
                 <i class="bi bi-filter me-1"></i>Filter
             </button> --}}
 
-            @include('livewire.includes.bt-dropdown-form',[
+            {{-- @include('livewire.includes.bt-dropdown-form',[
                 'dptitle'=>"Filter",
-                ])
+                ]) --}}
+                <div class="flex space-x-3">
+                    <div class="flex space-x-3 items-center">
+                        {{-- <label class="w-40 text-sm font-medium text-gray-900">User Type :</label> --}}
+                        <select wire:model.live="role"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <option value="">Filter</option>
+                            <option value="0">Member</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                </div>
 
-            <button type="button" class="btn btn-outline-primary">
+            {{-- <button type="button" class="btn btn-outline-primary">
                 <i class="bi bi-star me-1"></i>
-            </button>
+            </button> --}}
             @livewire('AddNewUserModal')
         </div>
         
@@ -104,11 +106,11 @@
                         <td>
                             <span class="badge bg-success">
                                 <i class="bi bi-calendar-week me-1"></i> 
-                                {{$user->created_at}}
+                                {{$user->created_at->format('Y-m-d')}}
                             </span>
                             <span class="badge bg-success">
                                 <i class="bi bi-clock-history me-1"></i> 
-                                {{$user->created_at}}
+                                {{$user->created_at->format('H:i:s')}}
                             </span>
                         </td>
                         <td>

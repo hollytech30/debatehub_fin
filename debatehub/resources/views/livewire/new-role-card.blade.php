@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     {{-- Do your work, then step back. --}}
     <div class="ol-md-4">
         <!--begin::Card-->
@@ -30,7 +30,7 @@
                             <form class="row g-3 needs-validation" novalidate="">
                                 <div class="col-12">
                                   <label for="roleName" class="form-label">Role Name</label>
-                                  <input type="text" name="name" class="form-control" id="roleName" required wire:model="name">
+                                  <input type="text" name="name" class="form-control" id="roleName" required wire:model.live.debounce.250ms="roleName">
                                   @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                 
@@ -46,12 +46,12 @@
                                             Select All Permissions
                                         </button>    --}}
 
-                                        <span class="badge bg-success" 
+                                        <span type="button" class="badge bg-success" 
                                             wire:click="selectAllPermissions">
                                             <i class="bi bi-folder me-1"></i> 
                                             Select All
                                         </span>
-                                        <span class="badge bg-danger"
+                                        <span type="button" class="badge bg-danger"
                                              wire:click="selectAllPermissions">
                                             <i class="bi bi-folder-check me-1"></i> 
                                             Deselect All

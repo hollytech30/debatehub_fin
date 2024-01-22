@@ -6,6 +6,9 @@ use App\Livewire\UsersList;
 use App\Livewire\RolesList;
 use App\Livewire\PermissionsList;
 
+use App\Http\Controllers\ContactFormController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +23,11 @@ use App\Livewire\PermissionsList;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+
+Route::post('/forms_contact', [ContactFormController::class, 'submitForm'])->name('submitContactForm');
+Route::post('subscribetonewsletter', [ContactFormController::class, 'handleNewsletterSubscription'])->name('newsletter.subscription');
+
 
 Route::middleware([
     'auth:sanctum',
